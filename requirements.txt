@@ -1,0 +1,8 @@
+yfinance
+pandas
+numpy
+tensorflow
+mysql-connector-python
+python-dotenv
+matplotlib
+scikit-learn
