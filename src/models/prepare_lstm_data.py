@@ -1,4 +1,4 @@
-"""Prepare sequences for LSTM volatility forecasting from MySQL price data."""
+"""Prepare per-ticker sequences for LSTM volatility forecasting."""
 import os
 from pathlib import Path
 
@@ -38,19 +38,16 @@ def load_price_and_volume(conn):
     return price_matrix, volume_matrix
 
 
-def build_ticker_sequences(returns: pd.Series, vol: pd.Series, log_volume: pd.Series, ticker_idx: int):
-    """Build (X, ticker_ids, y) sequences for a single ticker's series."""
-    X, ticker_ids, y = [], [], []
+def build_sequences(returns: pd.Series, vol: pd.Series, log_volume: pd.Series):
+    X, y = [], []
     values = np.column_stack([returns.values, vol.values, log_volume.values])
-    targets = returns.abs().shift(-1).values  # next-day |return|
+    targets = returns.abs().shift(-1).values
 
     for i in range(SEQ_LEN, len(values) - 1):
-        window = values[i - SEQ_LEN:i]
-        X.append(window)
-        ticker_ids.append(ticker_idx)
+        X.append(values[i - SEQ_LEN:i])
         y.append(targets[i])
 
-    return np.array(X), np.array(ticker_ids), np.array(y)
+    return np.array(X), np.array(y)
 
 
 def main():
@@ -60,46 +57,26 @@ def main():
 
     log_returns = np.log(prices / prices.shift(1)).dropna()
     rolling_vol = log_returns.rolling(ROLLING_VOL_WINDOW).std().dropna()
-    log_volume = np.log(volume + 1)  # +1 avoids log(0)
+    log_volume = np.log(volume + 1)
 
     common_index = log_returns.index.intersection(rolling_vol.index).intersection(log_volume.index)
     log_returns = log_returns.loc[common_index]
     rolling_vol = rolling_vol.loc[common_index]
     log_volume = log_volume.loc[common_index]
 
-    # Normalize log_volume per ticker (z-score) so it's on a similar scale to returns/vol
-    log_volume = (log_volume - log_volume.mean()) / log_volume.std()
-
-    tickers = list(log_returns.columns)
-
-    all_X, all_ticker_ids, all_y = [], [], []
-    for i, ticker in enumerate(tickers):
-        X_t, ids_t, y_t = build_ticker_sequences(
-            log_returns[ticker], rolling_vol[ticker], log_volume[ticker], i
-        )
-        all_X.append(X_t)
-        all_ticker_ids.append(ids_t)
-        all_y.append(y_t)
-        print(f"{ticker}: {X_t.shape[0]} sequences")
-
-    X = np.concatenate(all_X, axis=0)
-    ticker_ids = np.concatenate(all_ticker_ids, axis=0)
-    y = np.concatenate(all_y, axis=0)
-
-    print(f"\nTotal dataset: X={X.shape}, ticker_ids={ticker_ids.shape}, y={y.shape}")
-
     out_dir = Path(__file__).resolve().parents[2] / "data" / "processed"
     out_dir.mkdir(parents=True, exist_ok=True)
-    np.save(out_dir / "lstm_X.npy", X)
-    np.save(out_dir / "lstm_ticker_ids.npy", ticker_ids)
-    np.save(out_dir / "lstm_y.npy", y)
 
-    # Save ticker name -> id mapping for inference later
-    with open(out_dir / "ticker_index.txt", "w") as f:
-        for i, t in enumerate(tickers):
-            f.write(f"{t},{i}\n")
+    for ticker in log_returns.columns:
+        ticker_log_vol = log_volume[ticker]
+        ticker_log_vol_norm = (ticker_log_vol - ticker_log_vol.mean()) / ticker_log_vol.std()
 
-    print(f"Saved to {out_dir}")
+        X, y = build_sequences(log_returns[ticker], rolling_vol[ticker], ticker_log_vol_norm)
+        np.save(out_dir / f"lstm_X_{ticker}.npy", X)
+        np.save(out_dir / f"lstm_y_{ticker}.npy", y)
+        print(f"{ticker}: X={X.shape}, y={y.shape}")
+
+    print(f"\nSaved per-ticker datasets to {out_dir}")
 
 
 if __name__ == "__main__":

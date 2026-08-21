@@ -1,4 +1,4 @@
-"""Train an LSTM (with ticker embeddings) to forecast next-day return volatility."""
+"""Train a separate LSTM per ticker — each model only sees that ticker's own history."""
 from pathlib import Path
 
 import numpy as np
@@ -9,79 +9,75 @@ DATA_DIR = Path(__file__).resolve().parents[2] / "data" / "processed"
 MODEL_DIR = DATA_DIR / "models"
 MODEL_DIR.mkdir(parents=True, exist_ok=True)
 
-N_TICKERS = 4
-EMBEDDING_DIM = 4
+TICKERS = ["AAPL", "AMZN", "GOOGL", "MSFT"]
 
 
-def load_data():
-    X = np.load(DATA_DIR / "lstm_X.npy")
-    ticker_ids = np.load(DATA_DIR / "lstm_ticker_ids.npy")
-    y = np.load(DATA_DIR / "lstm_y.npy")
-    return X, ticker_ids, y
+def load_ticker_data(ticker: str):
+    X = np.load(DATA_DIR / f"lstm_X_{ticker}.npy")
+    y = np.load(DATA_DIR / f"lstm_y_{ticker}.npy")
+    return X, y
 
 
-def chronological_split(X, ticker_ids, y, test_frac: float = 0.15):
+def chronological_split(X, y, test_frac: float = 0.15):
     n = len(X)
     split_idx = int(n * (1 - test_frac))
-    return (
-        X[:split_idx], X[split_idx:],
-        ticker_ids[:split_idx], ticker_ids[split_idx:],
-        y[:split_idx], y[split_idx:],
-    )
+    return X[:split_idx], X[split_idx:], y[:split_idx], y[split_idx:]
 
 
 def build_model(seq_shape):
-    seq_input = layers.Input(shape=seq_shape, name="sequence_input")
-    ticker_input = layers.Input(shape=(1,), name="ticker_input")
-
-    ticker_embed = layers.Embedding(input_dim=N_TICKERS, output_dim=EMBEDDING_DIM)(ticker_input)
-    ticker_embed = layers.Flatten()(ticker_embed)  # (batch, EMBEDDING_DIM)
-    ticker_embed = layers.RepeatVector(seq_shape[0])(ticker_embed)  # repeat across timesteps
-
-    ticker_embed_reshaped = layers.Reshape((seq_shape[0], EMBEDDING_DIM))(ticker_embed)
-    merged = layers.Concatenate(axis=-1)([seq_input, ticker_embed_reshaped])
-
-    x = layers.LSTM(32, return_sequences=True)(merged)
-    x = layers.Dropout(0.2)(x)
-    x = layers.LSTM(16)(x)
-    x = layers.Dropout(0.2)(x)
-    x = layers.Dense(8, activation="relu")(x)
-    output = layers.Dense(1, activation="linear")(x)
-
-    model = models.Model(inputs=[seq_input, ticker_input], outputs=output)
+    model = models.Sequential([
+        layers.Input(shape=seq_shape),
+        layers.LSTM(32, return_sequences=True),
+        layers.Dropout(0.2),
+        layers.LSTM(16),
+        layers.Dropout(0.2),
+        layers.Dense(8, activation="relu"),
+        layers.Dense(1, activation="linear"),
+    ])
     model.compile(optimizer="adam", loss="mse", metrics=["mae"])
     return model
 
 
-def main():
-    X, ticker_ids, y = load_data()
-    print(f"Loaded X={X.shape}, ticker_ids={ticker_ids.shape}, y={y.shape}")
+def train_ticker(ticker: str):
+    print(f"\n{'='*50}\nTraining model for {ticker}\n{'='*50}")
 
-    X_train, X_test, tid_train, tid_test, y_train, y_test = chronological_split(X, ticker_ids, y)
+    X, y = load_ticker_data(ticker)
+    X_train, X_test, y_train, y_test = chronological_split(X, y)
     print(f"Train: {X_train.shape[0]} sequences, Test: {X_test.shape[0]} sequences")
 
     model = build_model(seq_shape=X_train.shape[1:])
-    model.summary()
 
     early_stop = tf.keras.callbacks.EarlyStopping(
         monitor="val_loss", patience=8, restore_best_weights=True
     )
 
-    history = model.fit(
-        [X_train, tid_train], y_train,
+    model.fit(
+        X_train, y_train,
         validation_split=0.15,
         epochs=80,
         batch_size=32,
         callbacks=[early_stop],
-        verbose=1,
+        verbose=0,  # quiet per-ticker to keep output readable across 4 runs
     )
 
-    test_loss, test_mae = model.evaluate([X_test, tid_test], y_test, verbose=0)
-    print(f"\nTest MSE: {test_loss:.6f}")
-    print(f"Test MAE: {test_mae:.6f}")
+    test_loss, test_mae = model.evaluate(X_test, y_test, verbose=0)
+    print(f"{ticker} — Test MSE: {test_loss:.6f}, Test MAE: {test_mae:.6f}")
 
-    model.save(MODEL_DIR / "volatility_lstm.keras")
-    print(f"Model saved to {MODEL_DIR / 'volatility_lstm.keras'}")
+    model_path = MODEL_DIR / f"volatility_lstm_{ticker}.keras"
+    model.save(model_path)
+    print(f"Saved to {model_path}")
+
+    return test_mae
+
+
+def main():
+    results = {}
+    for ticker in TICKERS:
+        results[ticker] = train_ticker(ticker)
+
+    print(f"\n{'='*50}\nSummary (Test MAE per ticker)\n{'='*50}")
+    for ticker, mae in results.items():
+        print(f"{ticker}: {mae:.6f}")
 
 
 if __name__ == "__main__":
