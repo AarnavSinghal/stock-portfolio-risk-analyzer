@@ -1,0 +1,923 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20262.26.0708.1337                               -->
+<workbook _.fcp.WorkbookFingerprinting.true...author-id='12b5c883be5d5266ead7e80f56ddca2432c44a233db15bc8e013b44cc01dea23' _.fcp.WorkbookFingerprinting.true...creator-author-id='12b5c883be5d5266ead7e80f56ddca2432c44a233db15bc8e013b44cc01dea23' _.fcp.WorkbookFingerprinting.true...creator-license-type='free' _.fcp.WorkbookFingerprinting.true...creator-machine-id='0c76085def195c7a13c68ab29bdae478db21dfae42bc98f6c8d5d14b492b0ce0' _.fcp.WorkbookFingerprinting.true...license-type='free' _.fcp.WorkbookFingerprinting.true...machine-id='0c76085def195c7a13c68ab29bdae478db21dfae42bc98f6c8d5d14b492b0ce0' original-version='18.1' source-build='2026.2.1 (20262.26.0708.1337)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+    <_.fcp.WorkbookFingerprinting.true...WorkbookFingerprinting />
+    <WorksheetBackgroundTransparency />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='prices' inline='true' name='federated.09zsb5w0i3i38z19jqcp6182u4ex' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='prices' name='textscan.09nsehs1qqbklo1fpv1vl0nk2r9v'>
+            <connection class='textscan' directory='/Users/aarnavsinghal/stock-portfolio-risk-analyzer/data/tableau_exports' filename='prices.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.09nsehs1qqbklo1fpv1vl0nk2r9v' name='prices.csv' table='[prices#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+            <column datatype='string' name='symbol' ordinal='0' />
+            <column datatype='date' name='price_date' ordinal='1' />
+            <column datatype='real' name='open_price' ordinal='2' />
+            <column datatype='real' name='high_price' ordinal='3' />
+            <column datatype='real' name='low_price' ordinal='4' />
+            <column datatype='real' name='close_price' ordinal='5' />
+            <column datatype='integer' name='volume' ordinal='6' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[prices.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>symbol</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[symbol]</local-name>
+            <parent-name>[prices.csv]</parent-name>
+            <remote-alias>symbol</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[prices.csv_0F71A4DF9C0C432C814B991C68890B98]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>price_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[price_date]</local-name>
+            <parent-name>[prices.csv]</parent-name>
+            <remote-alias>price_date</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[prices.csv_0F71A4DF9C0C432C814B991C68890B98]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>open_price</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[open_price]</local-name>
+            <parent-name>[prices.csv]</parent-name>
+            <remote-alias>open_price</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[prices.csv_0F71A4DF9C0C432C814B991C68890B98]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>high_price</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[high_price]</local-name>
+            <parent-name>[prices.csv]</parent-name>
+            <remote-alias>high_price</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[prices.csv_0F71A4DF9C0C432C814B991C68890B98]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>low_price</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[low_price]</local-name>
+            <parent-name>[prices.csv]</parent-name>
+            <remote-alias>low_price</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[prices.csv_0F71A4DF9C0C432C814B991C68890B98]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>close_price</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[close_price]</local-name>
+            <parent-name>[prices.csv]</parent-name>
+            <remote-alias>close_price</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[prices.csv_0F71A4DF9C0C432C814B991C68890B98]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>volume</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[volume]</local-name>
+            <parent-name>[prices.csv]</parent-name>
+            <remote-alias>volume</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[prices.csv_0F71A4DF9C0C432C814B991C68890B98]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='prices.csv' datatype='table' name='[__tableau_internal_object_id__].[prices.csv_0F71A4DF9C0C432C814B991C68890B98]' role='measure' type='quantitative' />
+      <column caption='Close Price' datatype='real' name='[close_price]' role='measure' type='quantitative' />
+      <column caption='High Price' datatype='real' name='[high_price]' role='measure' type='quantitative' />
+      <column caption='Low Price' datatype='real' name='[low_price]' role='measure' type='quantitative' />
+      <column caption='Open Price' datatype='real' name='[open_price]' role='measure' type='quantitative' />
+      <column caption='Price Date' datatype='date' name='[price_date]' role='dimension' type='ordinal' />
+      <column caption='Symbol' datatype='string' name='[symbol]' role='dimension' type='nominal' />
+      <column caption='Volume' datatype='integer' name='[volume]' role='measure' type='quantitative' />
+      <layout common-percentage='1' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' user-set-layout-v2='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;India&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='prices.csv' id='prices.csv_0F71A4DF9C0C432C814B991C68890B98'>
+            <properties context=''>
+              <relation connection='textscan.09nsehs1qqbklo1fpv1vl0nk2r9v' name='prices.csv' table='[prices#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                  <column datatype='string' name='symbol' ordinal='0' />
+                  <column datatype='date' name='price_date' ordinal='1' />
+                  <column datatype='real' name='open_price' ordinal='2' />
+                  <column datatype='real' name='high_price' ordinal='3' />
+                  <column datatype='real' name='low_price' ordinal='4' />
+                  <column datatype='real' name='close_price' ordinal='5' />
+                  <column datatype='integer' name='volume' ordinal='6' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+    <datasource caption='portfolio_holdings' inline='true' name='federated.02gqr4z0cllmsm12sdw8i1kpqbqu' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='portfolio_holdings' name='textscan.0jbb0600v1jc081btrg8o17gl8bj'>
+            <connection class='textscan' directory='/Users/aarnavsinghal/stock-portfolio-risk-analyzer/data/tableau_exports' filename='portfolio_holdings.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0jbb0600v1jc081btrg8o17gl8bj' name='portfolio_holdings.csv' table='[portfolio_holdings#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+            <column datatype='string' name='symbol' ordinal='0' />
+            <column datatype='real' name='weight' ordinal='1' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[portfolio_holdings.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>symbol</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[symbol]</local-name>
+            <parent-name>[portfolio_holdings.csv]</parent-name>
+            <remote-alias>symbol</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[portfolio_holdings.csv_086A44965C774AA18A8F2D607B13F3B2]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>weight</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[weight]</local-name>
+            <parent-name>[portfolio_holdings.csv]</parent-name>
+            <remote-alias>weight</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[portfolio_holdings.csv_086A44965C774AA18A8F2D607B13F3B2]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='portfolio_holdings.csv' datatype='table' name='[__tableau_internal_object_id__].[portfolio_holdings.csv_086A44965C774AA18A8F2D607B13F3B2]' role='measure' type='quantitative' />
+      <column caption='Symbol' datatype='string' name='[symbol]' role='dimension' type='nominal' />
+      <column caption='Weight' datatype='real' name='[weight]' role='measure' type='quantitative' />
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;India&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='portfolio_holdings.csv' id='portfolio_holdings.csv_086A44965C774AA18A8F2D607B13F3B2'>
+            <properties context=''>
+              <relation connection='textscan.0jbb0600v1jc081btrg8o17gl8bj' name='portfolio_holdings.csv' table='[portfolio_holdings#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                  <column datatype='string' name='symbol' ordinal='0' />
+                  <column datatype='real' name='weight' ordinal='1' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+    <datasource caption='volatility_forecasts' inline='true' name='federated.0bqn05q0vvry9g11cxx831b55es9' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='volatility_forecasts' name='textscan.0vz0mx309u6jtj15ejidh1ltc77l'>
+            <connection class='textscan' directory='/Users/aarnavsinghal/stock-portfolio-risk-analyzer/data/tableau_exports' filename='volatility_forecasts.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0vz0mx309u6jtj15ejidh1ltc77l' name='volatility_forecasts.csv' table='[volatility_forecasts#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+            <column datatype='string' name='symbol' ordinal='0' />
+            <column datatype='date' name='forecast_date' ordinal='1' />
+            <column datatype='real' name='predicted_volatility' ordinal='2' />
+            <column datatype='integer' name='horizon_days' ordinal='3' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[volatility_forecasts.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>symbol</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[symbol]</local-name>
+            <parent-name>[volatility_forecasts.csv]</parent-name>
+            <remote-alias>symbol</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[volatility_forecasts.csv_427006E382FD41C1B5D012B1F40565C2]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>forecast_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[forecast_date]</local-name>
+            <parent-name>[volatility_forecasts.csv]</parent-name>
+            <remote-alias>forecast_date</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[volatility_forecasts.csv_427006E382FD41C1B5D012B1F40565C2]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>predicted_volatility</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[predicted_volatility]</local-name>
+            <parent-name>[volatility_forecasts.csv]</parent-name>
+            <remote-alias>predicted_volatility</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[volatility_forecasts.csv_427006E382FD41C1B5D012B1F40565C2]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>horizon_days</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[horizon_days]</local-name>
+            <parent-name>[volatility_forecasts.csv]</parent-name>
+            <remote-alias>horizon_days</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[volatility_forecasts.csv_427006E382FD41C1B5D012B1F40565C2]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='volatility_forecasts.csv' datatype='table' name='[__tableau_internal_object_id__].[volatility_forecasts.csv_427006E382FD41C1B5D012B1F40565C2]' role='measure' type='quantitative' />
+      <column caption='Forecast Date' datatype='date' name='[forecast_date]' role='dimension' type='ordinal' />
+      <column caption='Horizon Days' datatype='integer' name='[horizon_days]' role='measure' type='quantitative' />
+      <column caption='Predicted Volatility' datatype='real' name='[predicted_volatility]' role='measure' type='quantitative' />
+      <column caption='Symbol' datatype='string' name='[symbol]' role='dimension' type='nominal' />
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;India&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='volatility_forecasts.csv' id='volatility_forecasts.csv_427006E382FD41C1B5D012B1F40565C2'>
+            <properties context=''>
+              <relation connection='textscan.0vz0mx309u6jtj15ejidh1ltc77l' name='volatility_forecasts.csv' table='[volatility_forecasts#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                  <column datatype='string' name='symbol' ordinal='0' />
+                  <column datatype='date' name='forecast_date' ordinal='1' />
+                  <column datatype='real' name='predicted_volatility' ordinal='2' />
+                  <column datatype='integer' name='horizon_days' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+    <datasource caption='risk_metrics' inline='true' name='federated.1csnc5r1fnqvjm1cm2j6g1cpqurh' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='risk_metrics' name='textscan.1cyuiwe1rtvubu193tawb0mlnge0'>
+            <connection class='textscan' directory='/Users/aarnavsinghal/stock-portfolio-risk-analyzer/data/tableau_exports' filename='risk_metrics.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1cyuiwe1rtvubu193tawb0mlnge0' name='risk_metrics.csv' table='[risk_metrics#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+            <column datatype='integer' name='id' ordinal='0' />
+            <column datatype='date' name='calc_date' ordinal='1' />
+            <column datatype='real' name='var_95' ordinal='2' />
+            <column datatype='real' name='var_99' ordinal='3' />
+            <column datatype='real' name='sharpe_ratio' ordinal='4' />
+            <column datatype='datetime' name='created_at' ordinal='5' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[risk_metrics.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;₹&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_IN&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[id]</local-name>
+            <parent-name>[risk_metrics.csv]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[risk_metrics.csv_B2AA57936E214AB691432004FDCE5B20]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>calc_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[calc_date]</local-name>
+            <parent-name>[risk_metrics.csv]</parent-name>
+            <remote-alias>calc_date</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[risk_metrics.csv_B2AA57936E214AB691432004FDCE5B20]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>var_95</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[var_95]</local-name>
+            <parent-name>[risk_metrics.csv]</parent-name>
+            <remote-alias>var_95</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[risk_metrics.csv_B2AA57936E214AB691432004FDCE5B20]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>var_99</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[var_99]</local-name>
+            <parent-name>[risk_metrics.csv]</parent-name>
+            <remote-alias>var_99</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[risk_metrics.csv_B2AA57936E214AB691432004FDCE5B20]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>sharpe_ratio</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[sharpe_ratio]</local-name>
+            <parent-name>[risk_metrics.csv]</parent-name>
+            <remote-alias>sharpe_ratio</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[risk_metrics.csv_B2AA57936E214AB691432004FDCE5B20]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>created_at</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[created_at]</local-name>
+            <parent-name>[risk_metrics.csv]</parent-name>
+            <remote-alias>created_at</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[risk_metrics.csv_B2AA57936E214AB691432004FDCE5B20]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='risk_metrics.csv' datatype='table' name='[__tableau_internal_object_id__].[risk_metrics.csv_B2AA57936E214AB691432004FDCE5B20]' role='measure' type='quantitative' />
+      <column caption='Calc Date' datatype='date' name='[calc_date]' role='dimension' type='ordinal' />
+      <column caption='Created At' datatype='datetime' name='[created_at]' role='dimension' type='ordinal' />
+      <column caption='Id' datatype='integer' name='[id]' role='dimension' type='ordinal' />
+      <column caption='Sharpe Ratio' datatype='real' name='[sharpe_ratio]' role='measure' type='quantitative' />
+      <column caption='Var 95' datatype='real' name='[var_95]' role='measure' type='quantitative' />
+      <column caption='Var 99' datatype='real' name='[var_99]' role='measure' type='quantitative' />
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;India&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='risk_metrics.csv' id='risk_metrics.csv_B2AA57936E214AB691432004FDCE5B20'>
+            <properties context=''>
+              <relation connection='textscan.1cyuiwe1rtvubu193tawb0mlnge0' name='risk_metrics.csv' table='[risk_metrics#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_IN' separator=','>
+                  <column datatype='integer' name='id' ordinal='0' />
+                  <column datatype='date' name='calc_date' ordinal='1' />
+                  <column datatype='real' name='var_95' ordinal='2' />
+                  <column datatype='real' name='var_99' ordinal='3' />
+                  <column datatype='real' name='sharpe_ratio' ordinal='4' />
+                  <column datatype='datetime' name='created_at' ordinal='5' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <actions>
+    <action caption='Highlight 1 (generated)' name='[Action1_E17E75629624419385B9D2CCF59934D7]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Dashboard 1' type='sheet' />
+      <command command='tsc:brush'>
+        <param name='field-captions' value='Symbol' />
+        <param name='target' value='Dashboard 1' />
+      </command>
+    </action>
+  </actions>
+  <worksheets>
+    <worksheet name='Portfolio Allocation'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='portfolio_holdings' name='federated.02gqr4z0cllmsm12sdw8i1kpqbqu' />
+          </datasources>
+          <datasource-dependencies datasource='federated.02gqr4z0cllmsm12sdw8i1kpqbqu'>
+            <column-instance column='[symbol]' derivation='None' name='[none:symbol:nk]' pivot='key' type='nominal' />
+            <column-instance column='[weight]' derivation='Sum' name='[sum:weight:qk]' pivot='key' type='quantitative' />
+            <column caption='Symbol' datatype='string' name='[symbol]' role='dimension' type='nominal' />
+            <column caption='Weight' datatype='real' name='[weight]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <encodings>
+              <color column='[federated.02gqr4z0cllmsm12sdw8i1kpqbqu].[none:symbol:nk]' />
+              <wedge-size column='[federated.02gqr4z0cllmsm12sdw8i1kpqbqu].[sum:weight:qk]' />
+              <size column='[federated.02gqr4z0cllmsm12sdw8i1kpqbqu].[sum:weight:qk]' />
+              <text column='[federated.02gqr4z0cllmsm12sdw8i1kpqbqu].[none:symbol:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{FAB2B3E2-A782-48EC-B069-BE109C30CA59}' />
+    </worksheet>
+    <worksheet name='Price History'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='prices' name='federated.09zsb5w0i3i38z19jqcp6182u4ex' />
+          </datasources>
+          <datasource-dependencies datasource='federated.09zsb5w0i3i38z19jqcp6182u4ex'>
+            <column-instance column='[close_price]' derivation='Avg' name='[avg:close_price:qk]' pivot='key' type='quantitative' />
+            <column caption='Close Price' datatype='real' name='[close_price]' role='measure' type='quantitative' />
+            <column-instance column='[symbol]' derivation='None' name='[none:symbol:nk]' pivot='key' type='nominal' />
+            <column caption='Price Date' datatype='date' name='[price_date]' role='dimension' type='ordinal' />
+            <column caption='Symbol' datatype='string' name='[symbol]' role='dimension' type='nominal' />
+            <column-instance column='[price_date]' derivation='Day-Trunc' name='[tdy:price_date:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.09zsb5w0i3i38z19jqcp6182u4ex].[none:symbol:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.09zsb5w0i3i38z19jqcp6182u4ex].[avg:close_price:qk]</rows>
+        <cols>[federated.09zsb5w0i3i38z19jqcp6182u4ex].[tdy:price_date:qk]</cols>
+      </table>
+      <simple-id uuid='{C713B2A1-3F90-4105-BFF1-E8C0A4EEAD68}' />
+    </worksheet>
+    <worksheet name='Risk Metrics'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='risk_metrics' name='federated.1csnc5r1fnqvjm1cm2j6g1cpqurh' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1csnc5r1fnqvjm1cm2j6g1cpqurh'>
+            <column-instance column='[sharpe_ratio]' derivation='Avg' name='[avg:sharpe_ratio:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[var_95]' derivation='Avg' name='[avg:var_95:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[var_99]' derivation='Avg' name='[avg:var_99:qk]' pivot='key' type='quantitative' />
+            <column caption='Calc Date' datatype='date' name='[calc_date]' role='dimension' type='ordinal' />
+            <column-instance column='[calc_date]' derivation='Day' name='[dy:calc_date:ok]' pivot='key' type='ordinal' />
+            <column caption='Sharpe Ratio' datatype='real' name='[sharpe_ratio]' role='measure' type='quantitative' />
+            <column caption='Var 95' datatype='real' name='[var_95]' role='measure' type='quantitative' />
+            <column caption='Var 99' datatype='real' name='[var_99]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1csnc5r1fnqvjm1cm2j6g1cpqurh].[avg:var_95:qk]' />
+              <text column='[federated.1csnc5r1fnqvjm1cm2j6g1cpqurh].[avg:var_99:qk]' />
+              <text column='[federated.1csnc5r1fnqvjm1cm2j6g1cpqurh].[avg:sharpe_ratio:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1csnc5r1fnqvjm1cm2j6g1cpqurh].[dy:calc_date:ok]</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{E32AFF2D-FCFB-4F1E-B292-0212C103B0EE}' />
+    </worksheet>
+    <worksheet name='Volatility Forecast'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='volatility_forecasts' name='federated.0bqn05q0vvry9g11cxx831b55es9' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0bqn05q0vvry9g11cxx831b55es9'>
+            <column-instance column='[symbol]' derivation='None' name='[none:symbol:nk]' pivot='key' type='nominal' />
+            <column caption='Predicted Volatility' datatype='real' name='[predicted_volatility]' role='measure' type='quantitative' />
+            <column-instance column='[predicted_volatility]' derivation='Sum' name='[sum:predicted_volatility:qk]' pivot='key' type='quantitative' />
+            <column caption='Symbol' datatype='string' name='[symbol]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0bqn05q0vvry9g11cxx831b55es9].[none:symbol:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0bqn05q0vvry9g11cxx831b55es9].[sum:predicted_volatility:qk]</rows>
+        <cols>[federated.0bqn05q0vvry9g11cxx831b55es9].[none:symbol:nk]</cols>
+      </table>
+      <simple-id uuid='{295F284D-560F-4E01-9394-B52B7A09C7DA}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Dashboard 1'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='7' param='horz' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='5' type-v2='layout-basic' w='98400' x='800' y='1000'>
+              <zone h='49000' id='3' name='Price History' w='98400' x='800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49000' id='12' name='Volatility Forecast' w='47300' x='32100' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49000' id='14' name='Portfolio Allocation' w='31300' x='800' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49000' id='19' name='Risk Metrics' w='19800' x='79400' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+        <zone h='12250' id='8' name='Price History' pane-specification-id='0' param='[federated.09zsb5w0i3i38z19jqcp6182u4ex].[none:symbol:nk]' type-v2='color' w='14000' x='42500' y='4125' />
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1250' minheight='1250' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='21' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='20' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+                <zone fixed-size='280' h='49000' id='3' is-fixed='true' name='Price History' w='98400' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='12250' id='8' name='Price History' pane-specification-id='0' param='[federated.09zsb5w0i3i38z19jqcp6182u4ex].[none:symbol:nk]' type-v2='color' w='14000' x='42500' y='4125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49000' id='14' is-fixed='true' name='Portfolio Allocation' w='31300' x='800' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49000' id='12' is-fixed='true' name='Volatility Forecast' w='47300' x='32100' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49000' id='19' is-fixed='true' name='Risk Metrics' w='19800' x='79400' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{30659EF9-B1F2-4C45-85FD-5D08BE7C922C}' />
+    </dashboard>
+  </dashboards>
+  <windows pres-mode='true' source-height='93'>
+    <window class='worksheet' name='Price History'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.09zsb5w0i3i38z19jqcp6182u4ex].[none:symbol:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B1AF1D50-2BFF-4DCA-880D-D2E255ACBCEA}' />
+    </window>
+    <window class='worksheet' name='Portfolio Allocation'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.02gqr4z0cllmsm12sdw8i1kpqbqu].[none:symbol:nk]' type='color' />
+            <card pane-specification-id='0' param='[federated.02gqr4z0cllmsm12sdw8i1kpqbqu].[sum:weight:qk]' type='size' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{217F6546-C0CE-4292-955B-81C7EB551040}' />
+    </window>
+    <window class='worksheet' name='Volatility Forecast'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0bqn05q0vvry9g11cxx831b55es9].[none:symbol:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{816D12B1-3A7C-45BC-A9DD-79B8F37C7908}' />
+    </window>
+    <window class='worksheet' name='Risk Metrics'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{5F4BF97F-0CBE-45F4-961B-95C2E2FA5E95}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Portfolio Allocation'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Price History'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Risk Metrics' />
+        <viewpoint name='Volatility Forecast'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{3D654A39-2C39-4277-A795-68C773183974}' />
+    </window>
+  </windows>
+</workbook>
