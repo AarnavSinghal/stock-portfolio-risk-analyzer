@@ -87,7 +87,8 @@ Tableau's MySQL ODBC driver failed to install on macOS due to a code-signing/dep
 
 ## Dashboard
 
-![alt text](<Screenshot 2026-08-22 at 04.02.11.png>)
+<img width="1470" height="956" alt="Screenshot 2026-08-22 at 16 36 22" src="https://github.com/user-attachments/assets/38abbef9-8651-4d27-8914-c0976a9e2fe4" />
+
 
 ## Future Work
 
